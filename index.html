@@ -17,6 +17,7 @@
   <!-- OBJ形式のCGモデルの読み込み -->
   <a-assets>
     <a-asset-item id="obj" src="untitled.obj"></a-asset-item>   <!-- objファイル -->
+    <a-asset-item id="objidl" src="idl.obj"></a-asset-item>   <!-- objファイル -->
     <a-asset-item id="mtl" src="untitled.mtl"></a-asset-item>   <!-- mtlファイル -->
   </a-assets>
 
@@ -27,7 +28,7 @@
     <a-obj-model
       src="#obj"
       mtl="#mtl"
-      scale="0.1 0.1 0.1"
+      scale="0.3 0.3 0.3"
       position="0 0.5 0">
       <a-animation
         attribute="rotation"
@@ -38,6 +39,23 @@
       </a-animation>
     </a-obj-model>
   </a-marker>
+
+   <!-- マーカーを登録（プリセットされている「kanji」マーカー） -->
+      <a-marker preset="kanji">
+        <!-- マーカーの場所に OBJ 形式の 3DCG を置く -->
+        <a-obj-model
+          src="#objidl"
+          scale="0.03 0.03 0.03"
+          position="0 0.5 0">
+          <a-animation
+            attribute="rotation"
+            to="0 360 0"
+            dur="3000"
+            easing="linear"
+            repeat="indefinite">
+          </a-animation>
+        </a-obj-model>
+      </a-marker>
  
     <!-- AR用のカメラを置く -->
     <a-entity camera></a-entity>
